@@ -18,5 +18,25 @@ describe('API ROUTING TESTING', () => {
             return done();
         });
     });
+    it('GET /api/images/resize', (done) => {
+        (0, supertest_1.default)(app_1.default)
+            .get(`/api/images/resize?filename=fjord&width=600&height=501`)
+            .expect(200)
+            .end(function (err, _res) {
+            if (err)
+                throw err;
+            done();
+        });
+    });
+    it('GET /api/images/rotate', (done) => {
+        (0, supertest_1.default)(app_1.default)
+            .get(`/api/images/rotate?filename=fjord&angle=45`)
+            .expect(200)
+            .end(function (err, _res) {
+            if (err)
+                throw err;
+            done();
+        });
+    });
 });
 //# sourceMappingURL=apiSpec.js.map

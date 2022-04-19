@@ -14,7 +14,9 @@
   "author": "Ali",
   "license": "ISC",
   "devDependencies": {
-    "@types/cors": "^2.8.12",
+    "@types/cors": "^2.8.12",    
+    "@types/express-validator": "^3.0.0",
+    "@types/sharp": "^0.30.2",
     "@types/express": "^4.17.13",
     "@types/jasmine": "^4.0.2",
     "@types/node": "^17.0.24",
@@ -34,8 +36,6 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@types/express-validator": "^3.0.0",
-    "@types/sharp": "^0.30.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-validator": "^6.14.0",

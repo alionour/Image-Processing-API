@@ -1,6 +1,7 @@
 import sharp from "sharp";
-import fs from "fs";
+import checkIfFileExists from "../../utilities/check_if_file_exists";
 import path from "path";
+import getFileMetadata from "../../utilities/get_metadata";
 
 interface ResizeImageParameters {
   source: string;
@@ -8,22 +9,8 @@ interface ResizeImageParameters {
   width: number;
   height: number;
 }
-/**
- * gets the metadata of the provided file
- *
- * @param {string} filename
- * @return {*}  {(Promise<sharp.Metadata|undefined>)}
- */
-export async function getFileMetadata(
-  filename: string
-): Promise<sharp.Metadata | never> {
-  try {
-    return await sharp(filename).metadata();
-  } catch (error) {
-    if (error) console.log(`An error occurred during processing: ${error}`);
-    throw error;
-  }
-}
+
+
 
 /**
  *
@@ -35,7 +22,6 @@ async function resizeImage(
   params: ResizeImageParameters
 ): Promise<string | never> {
   try {
-    console.log(params.source);
     const filePath = params.source;
     const width = params.width;
     const height = params.height;
@@ -45,17 +31,15 @@ async function resizeImage(
     const fileName = path.basename(filePath).split(".")[0];
 
     const target =
-      params.target ??
-      "./assets/images/thumbnails/" +
+    (params.target ?? "./assets/images/thumbnails/") +
         `${fileName}.${width}.${height}.${metadata?.format}`;
-    console.log(`filepath : ${filePath}\n
-    file output :${target}
-    `);
+    
 
     // checks if image exists at thumbnails folder if not creates one
-    if (!(await checkIfImageExists(target))) {
-      await sharp(filePath).resize(width, height).toFile(target);
-    }
+    const exists = await checkIfFileExists(target);
+      if (!exists) {
+        await sharp(filePath).resize(width, height).toFile(target);
+      }
     return target;
   } catch (err) {
     if (err) console.log(`An error occurred during processing: ${err}`);
@@ -63,17 +47,6 @@ async function resizeImage(
   }
 }
 
-/**
- * checks if file exists
- *
- * @param {string} filePath
- */
-async function checkIfImageExists(filePath: string): Promise<boolean | never> {
-  try {
-    return fs.existsSync(filePath);
-  } catch (error) {
-    throw error;
-  }
-}
+
 
 export default resizeImage;

@@ -1,8 +1,8 @@
 import requestServer from 'supertest';
 import app from '../../src/app';
 
-describe('Run Server', ()=>{
-  it('GET /', (done:DoneFn)=>{
+
+  it('Server is running perfectly', (done:DoneFn)=>{
     requestServer(app).get('/').expect(200).expect('Content-Type', /json/)
         .set('Accept', 'application/json')
         .expect((res)=>{
@@ -12,4 +12,3 @@ describe('Run Server', ()=>{
           return done();
         });
   });
-});
