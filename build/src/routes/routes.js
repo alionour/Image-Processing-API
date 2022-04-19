@@ -10,6 +10,7 @@ const routes = (0, express_1.Router)();
 routes.get("/", function (_req, res) {
     res.send({ result: "Entry Point" });
 });
+// requires no parameters and returns a json object
 routes.use("/api", api_1.default);
 exports.default = routes;
 //# sourceMappingURL=routes.js.map

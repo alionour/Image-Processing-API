@@ -1,17 +1,16 @@
 import { Router } from "express";
 import resizeImage from "../../../modules/images_processing/images_resize";
-import validator, { check, validationResult } from "express-validator";
-import fs from "fs";
-import path from "path";
+import { check, validationResult } from "express-validator";
 import getAvailableFiles from "../../../utilities/get_files_names_from_directory";
 import rotateImage from "../../../modules/images_processing/images_rotate";
-// eslint-disable-next-line new-cap
+
 const imagesRoutes = Router();
 
 imagesRoutes.get("/", (req, res) => {
   res.send({ result: "images routes" });
 });
 
+// requires [filename. width ,height , target[optional]] and returns a json object
 imagesRoutes.get(
   "/resize",
   check(
@@ -56,6 +55,7 @@ imagesRoutes.get(
   }
 );
 
+// requires [filename , angle , target[optional]] ] and returns a json object
 imagesRoutes.get(
   "/rotate",
   check(

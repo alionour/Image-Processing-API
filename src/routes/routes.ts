@@ -8,6 +8,7 @@ routes.get("/", function (_req, res) {
   res.send({ result: "Entry Point" });
 });
 
+// requires no parameters and returns a json object
 routes.use("/api", apiRoutes);
 
 export default routes;

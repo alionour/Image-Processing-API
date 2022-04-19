@@ -5,15 +5,15 @@ import sharp from "sharp";
  * @param {string} filepath
  * @return {*}  {(Promise<sharp.Metadata|undefined>)}
  */
- export async function getFileMetadata(
-    filepath: string
-  ): Promise<sharp.Metadata | never> {
-    try {
-      return await sharp(filepath).metadata();
-    } catch (error) {
-      if (error) console.log(`An error occurred during processing: ${error}`);
-      throw error;
-    }
+export async function getFileMetadata(
+  filepath: string
+): Promise<sharp.Metadata | never> {
+  try {
+    return await sharp(filepath).metadata();
+  } catch (error) {
+    if (error) console.log(`An error occurred during processing: ${error}`);
+    throw error;
+  }
 }
 
 export default getFileMetadata;

@@ -17,11 +17,11 @@ const images_resize_1 = __importDefault(require("../../../modules/images_process
 const express_validator_1 = require("express-validator");
 const get_files_names_from_directory_1 = __importDefault(require("../../../utilities/get_files_names_from_directory"));
 const images_rotate_1 = __importDefault(require("../../../modules/images_processing/images_rotate"));
-// eslint-disable-next-line new-cap
 const imagesRoutes = (0, express_1.Router)();
 imagesRoutes.get("/", (req, res) => {
     res.send({ result: "images routes" });
 });
+// requires [filename. width ,height , target[optional]] and returns a json object
 imagesRoutes.get("/resize", (0, express_validator_1.check)("filename", `filename does not exist try a different filename 
   through the following available choices [${(0, get_files_names_from_directory_1.default)("./assets/images")}]`)
     .exists()
@@ -51,6 +51,7 @@ imagesRoutes.get("/resize", (0, express_validator_1.check)("filename", `filename
         width: width,
     }), { root: "./" });
 }));
+// requires [filename , angle , target[optional]] ] and returns a json object
 imagesRoutes.get("/rotate", (0, express_validator_1.check)("filename", `filename does not exist try a different filename 
   through the following available choices [${(0, get_files_names_from_directory_1.default)("./assets/images")}]`)
     .exists()

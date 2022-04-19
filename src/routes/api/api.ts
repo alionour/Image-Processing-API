@@ -6,6 +6,7 @@ const apiRoutes = Router();
 
 apiRoutes.use("/images", imagesRoutes);
 
+// requires no parameters and returns a json object
 apiRoutes.get("/", (_req, res) => {
   res.send({ result: "Api Routes" });
 });

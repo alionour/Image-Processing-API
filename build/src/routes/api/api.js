@@ -8,6 +8,7 @@ const images_1 = __importDefault(require("./images/images"));
 // eslint-disable-next-line new-cap
 const apiRoutes = (0, express_1.Router)();
 apiRoutes.use("/images", images_1.default);
+// requires no parameters and returns a json object
 apiRoutes.get("/", (_req, res) => {
     res.send({ result: "Api Routes" });
 });

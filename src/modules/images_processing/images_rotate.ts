@@ -31,24 +31,17 @@ async function rotateImage(
       (params.target ?? "./assets/images/thumbnails/") +
       `${fileName}.angle.${angle}.${metadata?.format}`;
 
-
     // checks if image exists at thumbnails folder if not creates one
     const exists = await checkIfFileExists(target);
     if (!exists) {
-
-               await sharp(filePath).rotate(angle).toFile(target);
-
-      }
-  
+      await sharp(filePath).rotate(angle).toFile(target);
+    }
 
     return target;
-   
   } catch (err) {
     if (err) console.log(`An error occurred during processing: ${err}`);
     throw err;
   }
 }
-
-
 
 export default rotateImage;

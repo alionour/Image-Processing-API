@@ -10,8 +10,6 @@ interface ResizeImageParameters {
   height: number;
 }
 
-
-
 /**
  *
  *
@@ -31,22 +29,19 @@ async function resizeImage(
     const fileName = path.basename(filePath).split(".")[0];
 
     const target =
-    (params.target ?? "./assets/images/thumbnails/") +
-        `${fileName}.${width}.${height}.${metadata?.format}`;
-    
+      (params.target ?? "./assets/images/thumbnails/") +
+      `${fileName}.${width}.${height}.${metadata?.format}`;
 
     // checks if image exists at thumbnails folder if not creates one
     const exists = await checkIfFileExists(target);
-      if (!exists) {
-        await sharp(filePath).resize(width, height).toFile(target);
-      }
+    if (!exists) {
+      await sharp(filePath).resize(width, height).toFile(target);
+    }
     return target;
   } catch (err) {
     if (err) console.log(`An error occurred during processing: ${err}`);
     throw err;
   }
 }
-
-
 
 export default resizeImage;
