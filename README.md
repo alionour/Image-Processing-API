@@ -46,11 +46,20 @@ ___
    - filename
    - angle
    - target [optional] 
-
+  
+____
 ## Available Images
+
 - beatyandthebeast
+<img src="assets/images/beautyandthebeast.jpg" width="250" height="250"/>
 - encenadaport
+<img src="assets/images/encenadaport.jpg" width="250" height="250"/>
 - fjord
+<img src="assets/images/fjord.jpg" width="250" height="250"/>
 - icelandwaterfall
+<img src="assets/images/icelandwaterfall.jpg" width="250" height="250"/>
 - palmtunnel
+<img src="assets/images/palmtunnel.jpg" width="250" height="250"/>
 - santamonica
+<img src="assets/images/santamonica.jpg" width="250" height="250"/>
+____

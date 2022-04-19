@@ -45,11 +45,12 @@ async function resizeImage(
     const fileName = path.basename(filePath).split(".")[0];
 
     const target =
-      params.target ?? "./assets/images/thumbnails/" +
-      `${fileName}.${width}.${height}.${metadata?.format}`;
+      params.target ??
+      "./assets/images/thumbnails/" +
+        `${fileName}.${width}.${height}.${metadata?.format}`;
     console.log(`filepath : ${filePath}\n
     file output :${target}
-    ` );
+    `);
 
     // checks if image exists at thumbnails folder if not creates one
     if (!(await checkIfImageExists(target))) {

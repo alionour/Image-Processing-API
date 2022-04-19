@@ -5,7 +5,7 @@ import apiRoutes from "./api/api";
 const routes = Router();
 
 routes.get("/", function (_req, res) {
-  res.send({'result':"Entry Point"});
+  res.send({ result: "Entry Point" });
 });
 
 routes.use("/api", apiRoutes);

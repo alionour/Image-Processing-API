@@ -20,20 +20,23 @@ const images_rotate_1 = __importDefault(require("../../../modules/images_process
 // eslint-disable-next-line new-cap
 const imagesRoutes = (0, express_1.Router)();
 imagesRoutes.get("/", (req, res) => {
-    res.send({ 'result': 'images routes' });
+    res.send({ result: "images routes" });
 });
-imagesRoutes.get("/resize", (0, express_validator_1.check)('filename', `filename does not exist try a different filename 
-  through the following available choices [${(0, get_files_names_from_directory_1.default)('./assets/images')}]`)
-    .exists().isIn((0, get_files_names_from_directory_1.default)('./assets/images')), (0, express_validator_1.check)('width', 'width must be a positive number and bigger than 0 ')
-    .exists().isInt({ min: 1 }), (0, express_validator_1.check)('height', 'Height must be a positive number and  bigger than 0 ')
-    .exists().isInt({ min: 1 }), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+imagesRoutes.get("/resize", (0, express_validator_1.check)("filename", `filename does not exist try a different filename 
+  through the following available choices [${(0, get_files_names_from_directory_1.default)("./assets/images")}]`)
+    .exists()
+    .isIn((0, get_files_names_from_directory_1.default)("./assets/images")), (0, express_validator_1.check)("width", "width must be a positive number and bigger than 0 ")
+    .exists()
+    .isInt({ min: 1 }), (0, express_validator_1.check)("height", "Height must be a positive number and  bigger than 0 ")
+    .exists()
+    .isInt({ min: 1 }), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c, _d;
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = (0, express_validator_1.validationResult)(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({
-            'result': 'Something ewent wrong',
-            errors: errors.array()
+            result: "Something ewent wrong",
+            errors: errors.array(),
         });
     }
     const filename = (_a = req.query) === null || _a === void 0 ? void 0 : _a.filename;
@@ -48,19 +51,19 @@ imagesRoutes.get("/resize", (0, express_validator_1.check)('filename', `filename
         width: width,
     }), { root: "./" });
 }));
-imagesRoutes.get("/rotate", (0, express_validator_1.check)('filename', `filename does not exist try a different filename 
-  through the following available choices [${(0, get_files_names_from_directory_1.default)('./assets/images')}]`)
-    .exists().isIn((0, get_files_names_from_directory_1.default)('./assets/images')), (0, express_validator_1.check)('angle')
-    .exists().isInt({
-    min: 1
+imagesRoutes.get("/rotate", (0, express_validator_1.check)("filename", `filename does not exist try a different filename 
+  through the following available choices [${(0, get_files_names_from_directory_1.default)("./assets/images")}]`)
+    .exists()
+    .isIn((0, get_files_names_from_directory_1.default)("./assets/images")), (0, express_validator_1.check)("angle").exists().isInt({
+    min: 1,
 }), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _e, _f, _g;
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = (0, express_validator_1.validationResult)(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({
-            'result': 'Something ewent wrong',
-            errors: errors.array()
+            result: "Something ewent wrong",
+            errors: errors.array(),
         });
     }
     const filename = (_e = req.query) === null || _e === void 0 ? void 0 : _e.filename;

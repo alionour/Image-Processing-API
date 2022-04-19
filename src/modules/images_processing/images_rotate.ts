@@ -7,10 +7,7 @@ interface RotateImageParameters {
   source: string;
   target?: string;
   angle: number;
-  
 }
-
-
 
 /**
  *
@@ -33,10 +30,10 @@ async function rotateImage(
     const target =
       (params.target ?? "./assets/images/thumbnails/") +
       `${fileName}.angle.${angle}.${metadata?.format}`;
-      
-      console.log(`filepath : ${filePath}\n
+
+    console.log(`filepath : ${filePath}\n
       file output :${target}
-      ` );
+      `);
 
     // checks if image exists at thumbnails folder if not creates one
     if (!(await checkIfImageExists(target))) {

@@ -9,7 +9,7 @@ const images_1 = __importDefault(require("./images/images"));
 const apiRoutes = (0, express_1.Router)();
 apiRoutes.use("/images", images_1.default);
 apiRoutes.get("/", (_req, res) => {
-    res.send({ "result": "Api Routes" });
+    res.send({ result: "Api Routes" });
 });
 exports.default = apiRoutes;
 //# sourceMappingURL=api.js.map

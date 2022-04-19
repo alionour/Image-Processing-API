@@ -14,7 +14,7 @@ const fs_1 = __importDefault(require("fs"));
 function getAvailableFiles(dir) {
     const images = [];
     fs_1.default.readdirSync(dir).forEach((file) => {
-        images.push(file.split('.')[0]);
+        images.push(file.split(".")[0]);
     });
     return images;
 }

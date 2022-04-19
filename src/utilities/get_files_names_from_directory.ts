@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from "fs";
 
 /**
  * gets the name of the files in a specified directory
@@ -7,13 +7,12 @@ import fs from 'fs';
  * @param {string} dir the directory to get fil names from
  * @return {*}  {Array<string>}
  */
- function getAvailableFiles(dir:string) :Array<string>{
-    const images:Array<string> = []; 
-    fs.readdirSync(dir).forEach((file)=>{
-      images.push(file.split('.')[0]);
-    })    
-    return images;
-  }
+function getAvailableFiles(dir: string): Array<string> {
+  const images: Array<string> = [];
+  fs.readdirSync(dir).forEach((file) => {
+    images.push(file.split(".")[0]);
+  });
+  return images;
+}
 
-
-  export default getAvailableFiles;
+export default getAvailableFiles;

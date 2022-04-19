@@ -7,6 +7,6 @@ const apiRoutes = Router();
 apiRoutes.use("/images", imagesRoutes);
 
 apiRoutes.get("/", (_req, res) => {
-  res.send({"result":"Api Routes"});
+  res.send({ result: "Api Routes" });
 });
 export default apiRoutes;
