@@ -23,16 +23,16 @@ Runs linting rules.
 Runs prettier rules
 ___
 ## API Segments
-[/](https://localhost:3000/)
+[/](http://localhost:3000/)
     returns Json
 
-[/api](https://localhost:3000/api/)
+[/api](http://localhost:3000/api/)
     returns Json
 
-[/api/images](https://localhost:3000/api/images/)
+[/api/images](http://localhost:3000/api/images/)
     returns Json
 
-[/api/images/resize](https://localhost:3000/resize?filename=beautyandthebeast&width=200&height=500)
+[/api/images/resize](http://localhost:3000/resize?filename=beautyandthebeast&width=200&height=500)
     returns resized image with requested parameters 
     this api route requires 
    - filename
@@ -40,7 +40,7 @@ ___
    - height
    - target [optional] 
   
-[/api/images/rotate](https://localhost:3000/rotate?filename=beautyandthebeast&angle=45)
+[/api/images/rotate](http://localhost:3000/rotate?filename=beautyandthebeast&angle=45)
     returns resized image with requested parameters 
     this api route requires 
    - filename
